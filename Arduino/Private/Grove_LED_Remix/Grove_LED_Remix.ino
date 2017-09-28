@@ -15,25 +15,34 @@ const int BREATH_DELAY = 5; // milliseconds
 
 void setup()
 {
-    // Configure the LED's pin for output signals.
-    pinMode(pinLed, OUTPUT);
-    pinMode(button, INPUT);
+  // Configure the LED's pin for output signals.
+  pinMode(pinLed, OUTPUT);
+  pinMode(button, INPUT);
+
+  Serial.begin(9600);
 }
 
 void loop()
 {
+
+  //Serial.print("First state: ");
+  //Serial.println(digitalRead(button));
+
   if(digitalRead(button)){
+    //Serial.println("Entered if statement!");
     for(int i=0; i<256; i++)
     {
-        analogWrite(pinLed, i);
-        delay(BREATH_DELAY);
+      Serial.print("Value of i for the first loop: ");
+      Serial.println(i);
+      analogWrite(pinLed, i);
+      delay(BREATH_DELAY);
     }
     delay(100);
 
     for(int i=254; i>=0; i--)
     {
-        analogWrite(pinLed, i);
-        delay(BREATH_DELAY);
+      analogWrite(pinLed, i);
+      delay(BREATH_DELAY);
     }
     delay(500);
   }
