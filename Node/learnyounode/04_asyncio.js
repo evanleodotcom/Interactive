@@ -10,7 +10,7 @@ var fileBuffer =  undefined; //we don't know what this is yet
 function loadBuffer(callback){ 
   fs.readFile(process.argv[2],'utf8',function doneReading(err, data){ //run this code once the asynchronous read operation completes
       if(err){ //if something went wrong with the operation
-        console.log("Shit\'s fucked up!");
+        console.log("Shit's fucked up!");
       } else { //otherwise do this and sent it out
         fileBuffer = data.split('\n');
         fileBuffer = fileBuffer.length-1;
